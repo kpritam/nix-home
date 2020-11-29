@@ -3,6 +3,14 @@
 { config, lib, pkgs, ... }:
 
 let
+
+  themeConfig = ''
+    set -g theme_display_git_dirty yes
+    set -g theme_git_default_branches master main
+    set -g theme_display_git_master_branch yes
+    set -g theme_color_scheme dracula
+  '';
+
   # Set all shell aliases programatically
   shellAliases = {
     # Aliases for commonly used tools
@@ -13,6 +21,7 @@ let
     dc = "docker-compose";
     find = "fd";
     mk = "minikube";
+    du   = "ncdu --color dark -rr -x";
     
     hm = "home-manager";
     hms = "home-manager switch";
@@ -46,19 +55,17 @@ let
     # LESS = "--RAW-CONTROL-CHARS";
   };
 in {
-  # Fancy filesystem navigator
-  programs.broot = {
-    enable = true;
-    enableFishIntegration = true;
-  };
-
   # fish shell settings
   programs.fish = {
     inherit shellAliases;
     enable = true;
+    
+    promptInit = ''
+      eval (direnv hook fish)
+      any-nix-shell fish --info-right | source
+    '';
 
     plugins = [
-
       {
         name = "colored-man";
         src = pkgs.fetchFromGitHub {
@@ -110,6 +117,7 @@ in {
       }
     ];
 
+    shellInit = themeConfig;
     loginShellInit = ''
       if test -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
         fenv source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
@@ -122,8 +130,6 @@ in {
       if test -e ~/.nix-profile/etc/profile.d/nix.sh
         fenv source ~/.nix-profile/etc/profile.d/nix.sh
       end
-
-      eval (direnv hook fish)
 
       set -x LESS_TERMCAP_mb (printf '\e[1;31m')     # begin bold
       set -x LESS_TERMCAP_md (printf '\e[1;33m')     # begin blink

@@ -13,7 +13,7 @@ let
   # Handly shell command to view the dependency tree of Nix packages
   depends = pkgs.writeScriptBin "depends" ''
     dep=$1
-    nix-store --query --requisites $(which $dep)
+    nix-store --query --requisites (which $dep)
   '';
 
 
@@ -22,7 +22,7 @@ let
   '';
 
   wo = pkgs.writeScriptBin "wo" ''
-    readlink $(which $1)
+    readlink (which $1)
   '';
 
   run = pkgs.writeScriptBin "run" ''
@@ -61,8 +61,6 @@ in {
 
   # Enable Home Manager
   programs.home-manager.enable = true;
-  programs.direnv.enable = true;
-  programs.direnv.enableNixDirenvIntegration = true;
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -73,11 +71,43 @@ in {
     PGDATA = "/usr/local/var/postgres";
     JAVA_HOME = "$(/usr/libexec/java_home -v 11)";
     PATH = "$PATH:/Users/pritamkadam/Library/Application Support/Coursier/bin";
-    EDITOR = "code";
+    EDITOR = "nvim";
+  };
+
+  programs = {
+    bat.enable = true;
+
+    broot = {
+      enable = true;
+      enableFishIntegration = true;
+    };
+
+    direnv = {
+      enable = true;
+      enableFishIntegration = true;
+      enableNixDirenvIntegration = true;
+    };
+
+    fzf = {
+      enable = true;
+      enableFishIntegration = true;
+    };
+
+    gpg.enable = true;
+
+    htop = {
+      enable = true;
+      sortDescending = true;
+      sortKey = "PERCENT_CPU";
+    };
+
+    jq.enable = true;
+    ssh.enable = true;
   };
 
   # Miscellaneous packages (in alphabetical order)
   home.packages = with pkgs; [
+    any-nix-shell  # fish support for nix shell
     coursier
     colorls
     pstree
@@ -104,7 +134,6 @@ in {
     pre-commit # Pre-commit CI hook tool
     python3 # Have you upgraded yet???
     ripgrep # grep replacement written in Rust
-    spotify-tui # Spotify interface for the CLI
     tokei # Handy tool to see lines of code by language
     tree # Should be included in macOS but it's not
     vagrant # Virtualization made easy
@@ -113,6 +142,8 @@ in {
     wget
     yarn # Node.js package manager
     youtube-dl # Download videos
+    tldr
+    ncdu
     nixpkgs-fmt
     cacert
     nix
