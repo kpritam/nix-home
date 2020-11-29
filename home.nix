@@ -5,7 +5,7 @@ let
   imports = [
     ./git.nix
     ./neovim.nix
-    ./shell.nix
+    ./fish.nix
     ./tmux.nix
     ./vscode.nix
   ];
@@ -78,6 +78,7 @@ in {
 
   # Miscellaneous packages (in alphabetical order)
   home.packages = with pkgs; [
+    coursier
     colorls
     pstree
     bash # /bin/bash
