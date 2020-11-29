@@ -11,21 +11,31 @@ let
   ];
 
   # Handly shell command to view the dependency tree of Nix packages
-  depends = pkgs.writeScriptBin "depends" ''
+  dtree = pkgs.writeScriptBin "dtree" ''
+    #!${pkgs.bash}/bin/bash
     dep=$1
-    nix-store --query --requisites (which $dep)
+    nix-store --query --requisites $(which $dep)
+  '';
+
+  dgraph = pkgs.writeScriptBin "dgraph" ''
+    #!${pkgs.bash}/bin/bash
+    dep=$1
+    nix-store --query --graph $(which $dep) | dot -Tpdf > /tmp/graph.pdf && open /tmp/graph.pdf
   '';
 
 
   git-hash = pkgs.writeScriptBin "git-hash" ''
+    #!${pkgs.bash}/bin/bash
     nix-prefetch-url --unpack https://github.com/$1/$2/archive/$3.tar.gz
   '';
 
   wo = pkgs.writeScriptBin "wo" ''
-    readlink (which $1)
+    #!${pkgs.bash}/bin/bash
+    readlink $(which $1)
   '';
 
   run = pkgs.writeScriptBin "run" ''
+    #!${pkgs.bash}/bin/bash
     nix-shell --pure --run "$@"
   '';
 
@@ -36,7 +46,8 @@ let
   };
 
   scripts = [
-    depends
+    dtree
+    dgraph
     git-hash
     run
     wo
@@ -144,6 +155,12 @@ in {
     youtube-dl # Download videos
     tldr
     ncdu
+
+    graphviz # Graph visualization tools
+
+    neofetch # A fast, highly customizable system info script
+    dive # A tool for exploring each layer in a docker image
+
     nixpkgs-fmt
     cacert
     nix

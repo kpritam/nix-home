@@ -5,6 +5,7 @@
 let
 
   themeConfig = ''
+    set -g theme_nerd_fonts yes
     set -g theme_display_git_dirty yes
     set -g theme_git_default_branches master main
     set -g theme_display_git_master_branch yes
@@ -22,11 +23,11 @@ let
     find = "fd";
     mk = "minikube";
     du   = "ncdu --color dark -rr -x";
-    
+
     hm = "home-manager";
     hms = "home-manager switch";
-    # Nix garbage collection
-    garbage = "nix-collect-garbage -d && docker image prune --force";
+    garbage = "nix-collect-garbage -d && docker image prune --force"; # Nix garbage collection
+    hmu = "nix-channel --update && hms";
 
     # See which Nix packages are installed
     installed = "nix-env --query --installed";
@@ -51,8 +52,6 @@ let
 
     localip = "ipconfig getifaddr en0";
 
-    # Get color support for 'less'
-    # LESS = "--RAW-CONTROL-CHARS";
   };
 in {
   # fish shell settings
