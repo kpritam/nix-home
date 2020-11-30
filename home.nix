@@ -4,8 +4,8 @@ let
   # Import other Nix files
   imports = [
     ./git.nix
-    ./neovim.nix
-    ./fish.nix
+    ./neovim/default.nix
+    ./fish/default.nix
     ./tmux.nix
     ./vscode.nix
   ];
