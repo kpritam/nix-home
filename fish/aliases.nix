@@ -18,8 +18,9 @@
   installed = "nix-env --query --installed";
 
   ".." = "cd ..";
+  l = "exa -lahG";
   ls = "colorls";
-  la = "ls -ahl";
+  la = "ls -lah";
   md = "mkdir -p";
   cx = "chmod +x";
   cat = "bat";

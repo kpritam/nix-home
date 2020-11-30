@@ -155,6 +155,7 @@ in {
     youtube-dl # Download videos
     tldr
     ncdu
+    exa
 
     graphviz # Graph visualization tools
 

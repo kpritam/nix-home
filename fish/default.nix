@@ -92,6 +92,10 @@ in {
         fenv source ~/.nix-profile/etc/profile.d/nix.sh
       end
 
+      if test -e /etc/static/bashrc
+        fenv source /etc/static/bashrc
+      end
+
       set -x LESS_TERMCAP_mb (printf '\e[1;31m')     # begin bold
       set -x LESS_TERMCAP_md (printf '\e[1;33m')     # begin blink
       set -x LESS_TERMCAP_so (printf '\e[01;44;37m') # begin reverse video
