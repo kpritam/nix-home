@@ -81,7 +81,6 @@ in {
   home.sessionVariables = {
     PGDATA = "/usr/local/var/postgres";
     JAVA_HOME = "$(/usr/libexec/java_home -v 11)";
-    PATH = "$PATH:/Users/pritamkadam/Library/Application Support/Coursier/bin";
     EDITOR = "nvim";
   };
 
@@ -156,8 +155,9 @@ in {
     tldr
     ncdu
     exa
-
     graphviz # Graph visualization tools
+    ffmpeg
+    rename
 
     neofetch # A fast, highly customizable system info script
     dive # A tool for exploring each layer in a docker image

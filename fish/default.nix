@@ -104,6 +104,8 @@ in {
       set -x LESS_TERMCAP_se (printf '\e[0m')        # reset reverse video
       set -x LESS_TERMCAP_ue (printf '\e[0m')        # reset underline
       set -x GROFF_NO_SGR 1                  # for konsole and gnome-terminal
+
+      set -U fish_user_paths $fish_user_paths ~/Library/ApplicationSupport/Coursier/bin
     '';
   };
 
