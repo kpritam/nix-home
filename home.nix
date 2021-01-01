@@ -7,7 +7,7 @@ let
     ./neovim/default.nix
     ./fish/default.nix
     ./tmux.nix
-    ./vscode.nix
+    # ./vscode.nix
   ];
 
   # Handly shell command to view the dependency tree of Nix packages
@@ -85,7 +85,10 @@ in {
   };
 
   programs = {
-    bat.enable = true;
+    bat = {
+      enable = true;
+      config.theme = "Dracula";
+    };
 
     broot = {
       enable = true;
@@ -140,18 +143,17 @@ in {
     niv # Nix dependency management
     nix-serve
     nixos-generators
-    nodejs # node and npm
     pre-commit # Pre-commit CI hook tool
     python3 # Have you upgraded yet???
     ripgrep # grep replacement written in Rust
     tokei # Handy tool to see lines of code by language
     tree # Should be included in macOS but it's not
     vagrant # Virtualization made easy
-    vscode # My fav text editor if I'm being honest
+    # vscode # My fav text editor if I'm being honest
     slack
     wget
     yarn # Node.js package manager
-    youtube-dl # Download videos
+    youtube-dl #Download videos
     tldr
     ncdu
     exa
@@ -161,6 +163,7 @@ in {
 
     neofetch # A fast, highly customizable system info script
     dive # A tool for exploring each layer in a docker image
+    gotop # A terminal based graphical activity monitor inspired by gtop and vtop
 
     nixpkgs-fmt
     cacert

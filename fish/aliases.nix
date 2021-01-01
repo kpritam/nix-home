@@ -20,6 +20,7 @@
   ".." = "cd ..";
   l = "exa -lahG";
   ls = "colorls";
+  lst = "colorls --tree";
   la = "ls -lah";
   md = "mkdir -p";
   cx = "chmod +x";
@@ -35,6 +36,9 @@
   root = "cd (git rev-parse --show-cdup)";
   gpom = "git push origin master";
   gpr = "git pull --rebase";
+  g = "git";
+
+  c = "code-insiders";
 
   localip = "ipconfig getifaddr en0";
 }
