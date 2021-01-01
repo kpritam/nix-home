@@ -13,7 +13,7 @@ let
   '';
 
   # Set all shell aliases programatically
-  shellAliases = import ./aliases.nix;
+  shellAliases = import ./aliases.nix { inherit pkgs; };
 
 in {
   # fish shell settings
@@ -33,7 +33,7 @@ in {
           owner = "decors";
           repo = "fish-colored-man";
           rev = "c1e9db7765c932587b795d6c8965e9cff2fd849a";
-          sha256 = "0kpivdnynmkb9h824lh1z4djsjniaqdwfv0mjjia2rbpzvn8pca1";
+          sha256 = "16ar220pz8lmv58c8fj81mi7slk0qb20dh5zdwcyyw12dgzahsvr";
         };
       }
 

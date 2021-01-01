@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   # Aliases for commonly used tools
   grep = "grep --color=auto";
@@ -18,13 +20,13 @@
   installed = "nix-env --query --installed";
 
   ".." = "cd ..";
-  l = "exa -lahG";
-  ls = "colorls";
-  lst = "colorls --tree";
-  la = "ls -lah";
+  l = "${pkgs.exa}/bin/exa -lahG";
+  ls = "${pkgs.colorls}/bin/colorls";
+  lst = "${pkgs.colorls}/bin/colorls --tree";
+  la = "${pkgs.colorls}/bin/colorls -lah";
   md = "mkdir -p";
   cx = "chmod +x";
-  cat = "bat";
+  cat = "${pkgs.bat}/bin/bat";
   #  Jump to projects
   D = "cd ~/Downloads";
   p = "cd ~/projects";
@@ -33,10 +35,10 @@
   csw = "cd ~/projects/tmtsoftware/csw";
   esw = "cd ~/projects/tmtsoftware/esw";
   #  git
-  root = "cd (git rev-parse --show-cdup)";
-  gpom = "git push origin master";
-  gpr = "git pull --rebase";
-  g = "git";
+  root = "cd (${pkgs.gitAndTools.git}/bin/git rev-parse --show-cdup)";
+  gpom = "${pkgs.gitAndTools.git}/bin/git push origin master";
+  gpr = "${pkgs.gitAndTools.git}/bin/git pull --rebase";
+  g = "${pkgs.gitAndTools.git}/bin/git";
 
   c = "code-insiders";
 

@@ -167,7 +167,7 @@ in {
 
     nixpkgs-fmt
     cacert
-    nix
+    # nix
   ] ++ gitTools ++ scripts;
 
   # This value determines the Home Manager release that your
