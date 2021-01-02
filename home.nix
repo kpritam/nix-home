@@ -130,6 +130,8 @@ in {
     curl # An old classic
     direnv # Per-directory environment variables
     fzf # Fuzzy finder
+    fd
+    ranger
     gnupg # gpg
     pinentry_mac # Necessary for GPG
     gradle

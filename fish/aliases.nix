@@ -39,6 +39,7 @@
   gpom = "${pkgs.gitAndTools.git}/bin/git push origin master";
   gpr = "${pkgs.gitAndTools.git}/bin/git pull --rebase";
   g = "${pkgs.gitAndTools.git}/bin/git";
+  r = "${pkgs.ranger}/bin/ranger";
 
   c = "code-insiders";
 

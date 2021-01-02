@@ -23,7 +23,7 @@
       # UI #################################################
       gruvbox # colorscheme
       vim-gitgutter # status in gutter
-      # vim-devicons
+      vim-devicons
       vim-airline
 
       # Editor Features ####################################

@@ -51,7 +51,7 @@ in {
     # Global Git config
     extraConfig = {
       core = {
-        editor = "vim";
+        editor = "nvim";
         pager = "delta --dark";
         whitespace = "trailing-space,space-before-tab";
       };
