@@ -4,10 +4,9 @@ let
   # Import other Nix files
   imports = [
     ./git.nix
-    ./neovim/default.nix
+    # ./neovim/default.nix # Use this instead => https://github.com/ChristianChiarulli/nvim
     ./fish/default.nix
     ./tmux.nix
-    # ./vscode.nix
   ];
 
   # Handly shell command to view the dependency tree of Nix packages
@@ -38,12 +37,6 @@ let
     #!${pkgs.bash}/bin/bash
     nix-shell --pure --run "$@"
   '';
-
-  hugoLocal = pkgs.callPackage ./hugo.nix {
-    hugoVersion = "0.74.3";
-    sha = "0rikr4yrjvmrv8smvr8jdbcjqwf61y369wn875iywrj63pyr74r9";
-    vendorSha = "031k8bvca1pb1naw922vg5h95gnwp76dii1cjcs0b1qj93isdibk";
-  };
 
   scripts = [
     dtree
@@ -137,7 +130,6 @@ in {
     gradle
     htop # Resource monitoring
     httpie # Like curl but more user friendly
-    hugoLocal # Best static site generator ever
     jq # JSON parsing for the CLI
     jsonnet # Easy config language
     lorri # Easy Nix shell
@@ -162,6 +154,16 @@ in {
     graphviz # Graph visualization tools
     ffmpeg
     rename
+    mpv # Command line video player
+    ripgrep-all # ripgrep, but also search in PDFs, E-Books, Office documents, zip, tar.gz, and more
+    
+    zathura # A highly customizable and functional PDF viewer
+    mupdf # Lightweight PDF, XPS, and E-book viewer and toolkit written in portable C
+    ueberzug
+    silver-searcher
+    universal-ctags
+    lazygit
+    lazydocker
 
     neofetch # A fast, highly customizable system info script
     dive # A tool for exploring each layer in a docker image

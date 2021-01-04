@@ -11,6 +11,8 @@
   mk = "minikube";
   du   = "ncdu --color dark -rr -x";
 
+  v = "nvim";
+
   hm = "home-manager";
   hms = "home-manager switch";
   garbage = "nix-collect-garbage -d && docker image prune --force"; # Nix garbage collection

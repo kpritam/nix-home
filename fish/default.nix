@@ -106,6 +106,8 @@ in {
       set -x GROFF_NO_SGR 1                  # for konsole and gnome-terminal
 
       set -U fish_user_paths $fish_user_paths ~/Library/ApplicationSupport/Coursier/bin
+      set -U fish_user_paths $fish_user_paths ~/.local/bin
+      set -U fish_user_paths $fish_user_paths ~/Library/Python/3.8/bin
       set -g EDITOR "nvim"
     '';
   };
