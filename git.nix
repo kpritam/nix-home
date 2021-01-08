@@ -17,6 +17,7 @@ in {
       ".DS_Store"
       ".idea/"
       ".metals"
+      "metals.sbt"
       ".bloop"
       "*.swp"
       "dumb.rdb"
