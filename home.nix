@@ -138,7 +138,7 @@ in {
     nix-serve
     nixos-generators
     pre-commit # Pre-commit CI hook tool
-    python3 # Have you upgraded yet???
+    # python3 # Have you upgraded yet???
     ripgrep # grep replacement written in Rust
     tokei # Handy tool to see lines of code by language
     tree # Should be included in macOS but it's not
@@ -165,6 +165,8 @@ in {
     lazygit
     lazydocker
 
+    shellcheck
+    
     neofetch # A fast, highly customizable system info script
     dive # A tool for exploring each layer in a docker image
     gotop # A terminal based graphical activity monitor inspired by gtop and vtop
